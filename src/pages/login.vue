@@ -4,6 +4,7 @@
        <mt-field label="用户名" placeholder="请输入用户名" ></mt-field>
        <mt-field label="密码" placeholder="请输入密码" type="password"></mt-field>
        <mt-button type="primary" size="large" id="login"  v-on:click="login()">登录</mt-button>
+       <span>注册</span> <span>找回密码</span>
     </div>
 </template>
 <script>
