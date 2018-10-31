@@ -1,10 +1,11 @@
 <template>
     <div>
        <h5>用户登录</h5>
-       <mt-field label="用户名" placeholder="请输入用户名" ></mt-field>
-       <mt-field label="密码" placeholder="请输入密码" type="password"></mt-field>
+       <mt-field label="用户名" placeholder="请输入用户名"  v-model="USERNAME"></mt-field>
+       <mt-field label="密码" placeholder="请输入密码" type="password" v-model="PASSWORD"></mt-field>
        <mt-button type="primary" size="large" id="login"  v-on:click="login()">登录</mt-button>
        <span>注册</span> <span>找回密码</span>
+       <div>{{fullname}}</div>
     </div>
 </template>
 <script>
@@ -12,14 +13,23 @@
     import { Header } from 'mint-ui';
     export default{
         data(){
-            return{}
+            return{
+                USERNAME:"",
+                PASSWORD: ""
+            }
+        },
+        computed:{
+            fullname:function(){
+                return this.USERNAME+" "+this.PASSWORD
+            }
+           
         },
         methods: {
             login: function () {
                 var that=this;
                 let data = {
-                        USERNAME: "13412341234",
-                        PASSWORD: "96e79218965eb72c92a549dd5a330112"
+                        USERNAME:this.USERNAME,
+                        PASSWORD:this.PASSWORD
                     }
                 that.$http({
                     method: 'post',
