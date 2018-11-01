@@ -13,6 +13,12 @@ Vue.config.productionTip = false
 Vue.prototype.$http = axios
 Vue.prototype.$qs = qs
 
+
+var instance = axios.create({
+    headers: {'content-type': 'application/x-www-form-urlencoded'}
+});
+
+
 Vue.use(MintUI);
 /* eslint-disable no-new */
 new Vue({
